@@ -61,8 +61,7 @@ body {
 }
 
 .quiz-description h3 {
-    color: #667eea;
-    margin: 15px 0 10px;
+    color: #6749ca;
     font-size: 1.2em;
 }
 
@@ -136,6 +135,7 @@ body {
     margin-bottom: 8px;
     color: #333;
     font-weight: 500;
+    text-align: left;
 }
 
 .form-group select {
@@ -171,11 +171,12 @@ body {
     color: #666;
     font-size: 0.85em;
     font-style: italic;
+    text-align: left;
 }
 
 .consent-checkbox {
     margin: 25px 0;
-    text-align: center;
+    text-align: left;
 }
 
 .consent-checkbox label {
@@ -267,6 +268,11 @@ body {
 .start-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.form-screen {
+    display: none;
+    text-align: center;
 }
 
 .quiz-screen {

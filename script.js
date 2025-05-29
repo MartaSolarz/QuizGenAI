@@ -133,7 +133,7 @@ async function loadQuestions() {
             document.getElementById('loadingMessage').style.display = 'none';
             document.getElementById('startContent').style.display = 'block';
             document.getElementById('questionsCount').textContent =
-                `Dostępnych pytań badawczych: ${allQuestions.length}`;
+                `Liczba dostępnych pytań w bazie: ${allQuestions.length}`;
         } else {
             throw new Error('Nie znaleziono pytań w pliku');
         }
@@ -149,7 +149,7 @@ async function loadQuestions() {
 function setupFormValidation() {
     const form = document.getElementById('demographicsForm');
     const startButton = document.getElementById('startButton');
-    const requiredFields = ['age', 'gender', 'education', 'consent'];
+    const requiredFields = ['birthYear', 'gender', 'education', 'consent'];
 
     function validateForm() {
         const isValid = requiredFields.every(fieldId => {
@@ -187,6 +187,11 @@ function collectDemographics() {
     };
 }
 
+function goToMetric() {
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('formScreen').style.display = 'block';
+}
+
 // Rozpocznij quiz
 function startQuiz() {
     if (allQuestions.length < 5) {
@@ -205,6 +210,7 @@ function startQuiz() {
 
     // Przełącz na ekran quizu
     document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('formScreen').style.display = 'none';
     document.getElementById('quizScreen').style.display = 'block';
 
     displayQuestion();

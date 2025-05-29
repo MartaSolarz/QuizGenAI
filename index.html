@@ -9,39 +9,44 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>🧠 Human vs. AI 🤖</h1>
+        <h1>Human vs. AI</h1>
         <p class="subtitle">____</p>
         <p class="subtitle">Badanie prowadzone w ramach doktoratu:</p>
         <p class="subtitle">Możliwości zastosowania GenAI do opracowania i ewaluacji map statystycznych</p>
         <p class="subtitle">Marta Solarz, Międzydziedzinowa Szkoła Doktorska UW</p>
-<!--        <p class="subtitle">____</p>-->
+        <p class="subtitle">____</p>
     </div>
 
     <!-- Ekran startowy -->
     <div class="start-screen" id="startScreen">
-        <div class="loading" id="loadingMessage">
-            ⏳ Ładowanie pytań badawczych...
-        </div>
         <div style="display: none;" id="startContent">
             <div class="quiz-description">
-<!--                <h2>Opis badania</h2>-->
-<!--                <p>Badanie ocenia zdolność 12 popularnych modeli GenAI (m.in. GPT-4o, Gemini 1.5 Pro, DeepSeek-R1, Sonar) oraz 6 ekspertów (kartografów) w zakresie analizy i interpretacji map statystycznych. W quizie porównasz ich odpowiedzi, by sprawdzić, czy możliwe jest odróżnienie odpowiedzi napisanych przez człowieka od wygenerowanych przez AI.</p>-->
                 <div class="description-box">
                     <h3>Twoje zadanie:</h3>
                     <li>Quiz składa się z <strong>10 losowo wybranych pytań</strong> do różnych map statystycznych</li>
                     <p>Do każego pytania zaprezentowane zostaną <strong>dwie odpowiedzi</strong>:</p>
                     <ul>
-                        <li>🧑 Jedna napisana przez <strong>człowieka</strong></li>
-                        <li>🤖 Druga wygenerowana przez <strong>sztuczną inteligencję</strong></li>
+                        <li>Jedna napisana przez <strong>człowieka</strong></li>
+                        <li>Druga wygenerowana przez <strong>sztuczną inteligencję</strong></li>
                     </ul>
                     <p>Twoim zadaniem jest poprawnie wskazać, która z dwóch odpowiedzi została <strong>napisana przez człowieka.</strong></p>
                 </div>
-                <h2>Powodzenia!</h2>
             </div>
 
-            <!-- Formularz metryki -->
+            <button class="start-btn" onclick="goToMetric()" id="goToMetricButton">Przejdź do Quizu</button>
+            <p style="margin-top: 20px; color: #666;">
+                <small id="questionsCount">Pytania: ładowanie...</small>
+            </p>
+        </div>
+    </div>
+
+    <!-- Ekran metryczki -->
+    <div class="form-screen" id="formScreen">
+        <div class="loading" id="loadingMessage">
+            Ładowanie pytań badawczych...
+        </div>
             <div class="demographics-form" id="demographicsForm">
-                <h3>📋 Metryczka</h3>
+                <h3>Metryczka</h3>
                 <div class="form-group">
                     <label for="gender">Płeć:</label>
                     <select id="gender" required>
@@ -54,8 +59,8 @@
 
                 <div class="form-group">
                     <label for="birthYear">Rok urodzenia:</label>
-                    <input type="number" id="birthYear" min="1920" max="2010" placeholder="np. 1990" required>
-                    <small class="field-hint">Podaj rok urodzenia (np. 1990)</small>
+                    <input type="number" id="birthYear" min="1925" max="2015" placeholder="np. 1995" required>
+                    <small class="field-hint">Podaj rok urodzenia (np. 1995)</small>
                 </div>
 
                 <div class="form-group">
@@ -80,13 +85,10 @@
                 </div>
             </div>
 
-            <button class="start-btn" onclick="startQuiz()" id="startButton" disabled>🚀 Rozpocznij badanie</button>
-            <p style="margin-top: 20px; color: #666;">
-                <small id="questionsCount">Pytania: ładowanie...</small>
-            </p>
+            <button class="start-btn" onclick="startQuiz()" id="startButton" disabled>Start!</button>
         </div>
         <div class="error" id="errorMessage" style="display: none;">
-            ❌ Nie udało się załadować pytań badawczych. Spróbuj później.
+            Nie udało się załadować pytań badawczych. Spróbuj później.
             <br><br>
             <button class="restart-btn" onclick="loadQuestions()">🔄 Spróbuj ponownie</button>
         </div>
@@ -123,10 +125,10 @@
             <p><strong>Dziękujemy za udział w badaniu!</strong></p>
             <p>Twoje odpowiedzi zostały zapisane i pomogą w rozwoju badań nad sztuczną inteligencją.</p>
             <div class="save-status" id="saveStatus">
-                <p>💾 Zapisywanie danych...</p>
+                <p>Zapisywanie danych...</p>
             </div>
         </div>
-        <button class="restart-btn" onclick="restartQuiz()">🔄 Rozwiąż ponownie z nową bazą pytań</button>
+        <button class="restart-btn" onclick="restartQuiz()">Rozwiąż ponownie z nową bazą pytań</button>
     </div>
 </div>
 
