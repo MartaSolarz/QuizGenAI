@@ -50,7 +50,7 @@ async function loadQuestions() {
                     A: "Denmark has lower value by 2.5%",
                     I: "Slovenia has lower value by 1.8%",
                     Human: "A",
-                    Image: "/data/map1.png"
+                    Image: ""
                 },
                 {
                     ID: 2,
@@ -58,7 +58,7 @@ async function loadQuestions() {
                     A: "Switzerland higher by 3.2%",
                     I: "Austria higher by 2.1%",
                     Human: "B",
-                    Image: "/data/map1.png"
+                    Image: ""
                 },
                 {
                     ID: 3,
