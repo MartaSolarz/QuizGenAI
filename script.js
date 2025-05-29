@@ -193,7 +193,7 @@ function startQuiz() {
     collectDemographics();
 
     // Wylosuj 10 pytań
-    currentQuestions = shuffleArray([...allQuestions]).slice(0, 2);
+    currentQuestions = shuffleArray([...allQuestions]).slice(0, 10);
     currentQuestionIndex = 0;
     score = 0;
     quizResults = []; // Reset wyników
@@ -359,7 +359,7 @@ async function sendToGoogleSheets(data) {
 
     try {
         // URL do Google Apps Script Web App (będziesz musiał go zastąpić swoim)
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8QPJCAkt7HxICGir2euIu2wRxPguKznebAsj2YuzRe6_-laRa0b-vpPM8wfMSnXFvOQ/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxh0HR9kH8Up86KFENtaigYHPQYuNGexqaLf7BnrDbHzwtEp946Dv6h4-IHzvGW-IHLjQ/exec';
 
         // Jeśli nie masz jeszcze URL, zapisz lokalnie jako backup
         if (GOOGLE_SCRIPT_URL === 'TUTAJ_WSTAW_URL_DO_GOOGLE_APPS_SCRIPT') {
