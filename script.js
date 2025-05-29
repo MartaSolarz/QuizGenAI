@@ -172,10 +172,15 @@ function setupFormValidation() {
 
 // Zbierz dane demograficzne
 function collectDemographics() {
+    const birthYear = parseInt(document.getElementById('birthYear').value);
+    const currentYear = new Date().getFullYear();
+    const age = currentYear - birthYear;
+
     participantData = {
         sessionId: sessionId,
         timestamp: new Date().toISOString(),
-        age: document.getElementById('age').value,
+        birthYear: birthYear,
+        age: age, // Obliczony wiek dla analizy
         gender: document.getElementById('gender').value,
         education: document.getElementById('education').value,
         consent: document.getElementById('consent').checked
@@ -359,7 +364,7 @@ async function sendToGoogleSheets(data) {
 
     try {
         // URL do Google Apps Script Web App (będziesz musiał go zastąpić swoim)
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxh0HR9kH8Up86KFENtaigYHPQYuNGexqaLf7BnrDbHzwtEp946Dv6h4-IHzvGW-IHLjQ/exec';
+        const GOOGLE_SCRIPT_URL = 'TUTAJ_WSTAW_URL_DO_GOOGLE_APPS_SCRIPT';
 
         // Jeśli nie masz jeszcze URL, zapisz lokalnie jako backup
         if (GOOGLE_SCRIPT_URL === 'TUTAJ_WSTAW_URL_DO_GOOGLE_APPS_SCRIPT') {

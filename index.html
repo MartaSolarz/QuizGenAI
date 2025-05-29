@@ -9,8 +9,12 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>🧠 Człowiek vs AI</h1>
-        <p class="subtitle">Badanie w ramach doktoratu</p>
+        <h1>🧠 Human vs. AI 🤖</h1>
+        <p class="subtitle">____</p>
+        <p class="subtitle">Badanie prowadzone w ramach doktoratu:</p>
+        <p class="subtitle">Możliwości zastosowania GenAI do opracowania i ewaluacji map statystycznych</p>
+        <p class="subtitle">Marta Solarz, Międzydziedzinowa Szkoła Doktorska UW</p>
+<!--        <p class="subtitle">____</p>-->
     </div>
 
     <!-- Ekran startowy -->
@@ -20,50 +24,24 @@
         </div>
         <div style="display: none;" id="startContent">
             <div class="quiz-description">
-                <h2>Opis badania</h2>
-                <p>Witamy w badaniu naukowym dotyczącym rozpoznawania odpowiedzi generowanych przez sztuczną inteligencję!</p>
-
+<!--                <h2>Opis badania</h2>-->
+<!--                <p>Badanie ocenia zdolność 12 popularnych modeli GenAI (m.in. GPT-4o, Gemini 1.5 Pro, DeepSeek-R1, Sonar) oraz 6 ekspertów (kartografów) w zakresie analizy i interpretacji map statystycznych. W quizie porównasz ich odpowiedzi, by sprawdzić, czy możliwe jest odróżnienie odpowiedzi napisanych przez człowieka od wygenerowanych przez AI.</p>-->
                 <div class="description-box">
-                    <h3>🎯 Twoje zadanie:</h3>
-                    <p>Każde pytanie będzie zawierało <strong>dwie odpowiedzi</strong>:</p>
+                    <h3>Twoje zadanie:</h3>
+                    <li>Quiz składa się z <strong>10 losowo wybranych pytań</strong> do różnych map statystycznych</li>
+                    <p>Do każego pytania zaprezentowane zostaną <strong>dwie odpowiedzi</strong>:</p>
                     <ul>
                         <li>🧑 Jedna napisana przez <strong>człowieka</strong></li>
                         <li>🤖 Druga wygenerowana przez <strong>sztuczną inteligencję</strong></li>
                     </ul>
-                    <p><strong>Twoim zadaniem jest poprawnie określić, która odpowiedź została napisana przez człowieka.</strong></p>
+                    <p>Twoim zadaniem jest poprawnie wskazać, która z dwóch odpowiedzi została <strong>napisana przez człowieka.</strong></p>
                 </div>
-
-                <div class="description-box">
-                    <h3>📊 Szczegóły:</h3>
-                    <ul>
-                        <li>Quiz składa się z <strong>10 losowo wybranych pytań</strong></li>
-                        <li>Wszystkie pytania dotyczą interpretacji map i wykresów</li>
-                        <li>Odpowiedzi są anonimowe i służą wyłącznie celom badawczym</li>
-                        <li>Udział w badaniu jest dobrowolny</li>
-                    </ul>
-                </div>
-
-                <p style="text-align: center; margin: 30px 0;">
-                    <strong>Najpierw wypełnij krótką metrykę:</strong>
-                </p>
+                <h2>Powodzenia!</h2>
             </div>
 
             <!-- Formularz metryki -->
             <div class="demographics-form" id="demographicsForm">
-                <h3>📋 Dane demograficzne</h3>
-                <div class="form-group">
-                    <label for="age">Wiek:</label>
-                    <select id="age" required>
-                        <option value="">Wybierz przedział</option>
-                        <option value="18-25">18-25 lat</option>
-                        <option value="26-35">26-35 lat</option>
-                        <option value="36-45">36-45 lat</option>
-                        <option value="46-55">46-55 lat</option>
-                        <option value="56-65">56-65 lat</option>
-                        <option value="65+">Powyżej 65 lat</option>
-                    </select>
-                </div>
-
+                <h3>📋 Metryczka</h3>
                 <div class="form-group">
                     <label for="gender">Płeć:</label>
                     <select id="gender" required>
@@ -71,8 +49,13 @@
                         <option value="kobieta">Kobieta</option>
                         <option value="mężczyzna">Mężczyzna</option>
                         <option value="inne">Inne</option>
-                        <option value="nie_podaje">Nie chcę podawać</option>
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthYear">Rok urodzenia:</label>
+                    <input type="number" id="birthYear" min="1920" max="2010" placeholder="np. 1990" required>
+                    <small class="field-hint">Podaj rok urodzenia (np. 1990)</small>
                 </div>
 
                 <div class="form-group">
@@ -81,7 +64,9 @@
                         <option value="">Wybierz</option>
                         <option value="podstawowe">Podstawowe</option>
                         <option value="srednie">Średnie</option>
+                        <option value="w-trakcie-licencjatu">W trakcie studiów licencjackich/inżynierskich</option>
                         <option value="wyzsze_licencjat">Wyższe - licencjat/inżynier</option>
+                        <option value="w-trakcie-magistra">W trakcie studiów magisterskich</option>
                         <option value="wyzsze_magister">Wyższe - magister</option>
                         <option value="doktorat">Doktorat lub wyżej</option>
                     </select>
@@ -90,7 +75,7 @@
                 <div class="consent-checkbox">
                     <label>
                         <input type="checkbox" id="consent" required>
-                        Wyrażam zgodę na przetwarzanie moich danych w celach badawczych
+                        Wyrażam zgodę na przetwarzanie przekazanych danych w celach badawczych.
                     </label>
                 </div>
             </div>
@@ -101,7 +86,7 @@
             </p>
         </div>
         <div class="error" id="errorMessage" style="display: none;">
-            ❌ Nie udało się załadować pytań badawczych. Sprawdź czy plik questions.json istnieje i jest poprawny.
+            ❌ Nie udało się załadować pytań badawczych. Spróbuj później.
             <br><br>
             <button class="restart-btn" onclick="loadQuestions()">🔄 Spróbuj ponownie</button>
         </div>
@@ -131,17 +116,17 @@
 
     <!-- Ekran wyników -->
     <div class="results-screen" id="resultsScreen">
-        <h2>🎉 Badanie zakończone!</h2>
+        <h2>🎉 Quiz zakończony!</h2>
         <div class="score" id="finalScore">0/10</div>
         <div class="score-details" id="scoreDetails"></div>
         <div class="thank-you">
             <p><strong>Dziękujemy za udział w badaniu!</strong></p>
-            <p>Twoje odpowiedzi zostały automatycznie zapisane i pomogą w rozwoju badań nad sztuczną inteligencją.</p>
+            <p>Twoje odpowiedzi zostały zapisane i pomogą w rozwoju badań nad sztuczną inteligencją.</p>
             <div class="save-status" id="saveStatus">
                 <p>💾 Zapisywanie danych...</p>
             </div>
         </div>
-        <button class="restart-btn" onclick="restartQuiz()">🔄 Rozpocznij ponownie</button>
+        <button class="restart-btn" onclick="restartQuiz()">🔄 Rozwiąż ponownie z nową bazą pytań</button>
     </div>
 </div>
 
