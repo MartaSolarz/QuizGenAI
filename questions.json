@@ -1,0 +1,42 @@
+[
+  {
+    "ID": 1,
+    "Question": "Compare the value of the indicator presented on the map for Denmark and Slovenia. In which country is the value of the indicator lower and by how much?",
+    "A": "Denmark has lower value by 2.5%",
+    "I": "Slovenia has lower value by 1.8%",
+    "Human": "A",
+    "Image": "/data/map1.png"
+  },
+  {
+    "ID": 2,
+    "Question": "Compare the value of the indicator presented on the map for Switzerland and Austria. In which country is the value of the indicator higher and by how much?",
+    "A": "Switzerland higher by 3.2%",
+    "I": "Austria higher by 2.1%",
+    "Human": "B",
+    "Image": "/data/map1.png"
+  },
+  {
+    "ID": 3,
+    "Question": "What is the capital of France?",
+    "A": "London",
+    "I": "Paris",
+    "Human": "B",
+    "Image": ""
+  },
+  {
+    "ID": 4,
+    "Question": "Which planet is closest to the Sun?",
+    "A": "Mercury",
+    "I": "Venus",
+    "Human": "A",
+    "Image": ""
+  },
+  {
+    "ID": 5,
+    "Question": "What is 2 + 2?",
+    "A": "4",
+    "I": "5",
+    "Human": "A",
+    "Image": ""
+  }
+]

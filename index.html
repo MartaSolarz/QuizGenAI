@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - czy rozpoznasz, której odpowiedzi udzieliła sztuczna inteligencja?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🧠 Człowiek vs AI</h1>
+        <p class="subtitle">Badanie w ramach doktoratu</p>
+    </div>
+
+    <!-- Ekran startowy -->
+    <div class="start-screen" id="startScreen">
+        <div class="loading" id="loadingMessage">
+            ⏳ Ładowanie pytań badawczych...
+        </div>
+        <div style="display: none;" id="startContent">
+            <div class="quiz-description">
+                <h2>Opis badania</h2>
+                <p>Witamy w badaniu naukowym dotyczącym rozpoznawania odpowiedzi generowanych przez sztuczną inteligencję!</p>
+
+                <div class="description-box">
+                    <h3>🎯 Twoje zadanie:</h3>
+                    <p>Każde pytanie będzie zawierało <strong>dwie odpowiedzi</strong>:</p>
+                    <ul>
+                        <li>🧑 Jedna napisana przez <strong>człowieka</strong></li>
+                        <li>🤖 Druga wygenerowana przez <strong>sztuczną inteligencję</strong></li>
+                    </ul>
+                    <p><strong>Twoim zadaniem jest poprawnie określić, która odpowiedź została napisana przez człowieka.</strong></p>
+                </div>
+
+                <div class="description-box">
+                    <h3>📊 Szczegóły:</h3>
+                    <ul>
+                        <li>Quiz składa się z <strong>10 losowo wybranych pytań</strong></li>
+                        <li>Wszystkie pytania dotyczą interpretacji map i wykresów</li>
+                        <li>Odpowiedzi są anonimowe i służą wyłącznie celom badawczym</li>
+                        <li>Udział w badaniu jest dobrowolny</li>
+                    </ul>
+                </div>
+
+                <p style="text-align: center; margin: 30px 0;">
+                    <strong>Najpierw wypełnij krótką metrykę:</strong>
+                </p>
+            </div>
+
+            <!-- Formularz metryki -->
+            <div class="demographics-form" id="demographicsForm">
+                <h3>📋 Dane demograficzne</h3>
+                <div class="form-group">
+                    <label for="age">Wiek:</label>
+                    <select id="age" required>
+                        <option value="">Wybierz przedział</option>
+                        <option value="18-25">18-25 lat</option>
+                        <option value="26-35">26-35 lat</option>
+                        <option value="36-45">36-45 lat</option>
+                        <option value="46-55">46-55 lat</option>
+                        <option value="56-65">56-65 lat</option>
+                        <option value="65+">Powyżej 65 lat</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Płeć:</label>
+                    <select id="gender" required>
+                        <option value="">Wybierz</option>
+                        <option value="kobieta">Kobieta</option>
+                        <option value="mężczyzna">Mężczyzna</option>
+                        <option value="inne">Inne</option>
+                        <option value="nie_podaje">Nie chcę podawać</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="education">Wykształcenie:</label>
+                    <select id="education" required>
+                        <option value="">Wybierz</option>
+                        <option value="podstawowe">Podstawowe</option>
+                        <option value="srednie">Średnie</option>
+                        <option value="wyzsze_licencjat">Wyższe - licencjat/inżynier</option>
+                        <option value="wyzsze_magister">Wyższe - magister</option>
+                        <option value="doktorat">Doktorat lub wyżej</option>
+                    </select>
+                </div>
+
+                <div class="consent-checkbox">
+                    <label>
+                        <input type="checkbox" id="consent" required>
+                        Wyrażam zgodę na przetwarzanie moich danych w celach badawczych
+                    </label>
+                </div>
+            </div>
+
+            <button class="start-btn" onclick="startQuiz()" id="startButton" disabled>🚀 Rozpocznij badanie</button>
+            <p style="margin-top: 20px; color: #666;">
+                <small id="questionsCount">Pytania: ładowanie...</small>
+            </p>
+        </div>
+        <div class="error" id="errorMessage" style="display: none;">
+            ❌ Nie udało się załadować pytań badawczych. Sprawdź czy plik questions.json istnieje i jest poprawny.
+            <br><br>
+            <button class="restart-btn" onclick="loadQuestions()">🔄 Spróbuj ponownie</button>
+        </div>
+    </div>
+
+    <!-- Ekran quizu -->
+    <div class="quiz-screen" id="quizScreen">
+        <div class="question-counter" id="questionCounter">Pytanie 1 z 10</div>
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="question">
+            <div class="question-text" id="questionText"></div>
+            <div class="question-image" id="questionImage"></div>
+        </div>
+
+        <div class="instruction-reminder">
+            <p>💡 <strong>Przypomnienie:</strong> Która odpowiedź została napisana przez człowieka?</p>
+        </div>
+
+        <div class="answers" id="answers"></div>
+
+        <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Następne pytanie →</button>
+        <div style="clear: both;"></div>
+    </div>
+
+    <!-- Ekran wyników -->
+    <div class="results-screen" id="resultsScreen">
+        <h2>🎉 Badanie zakończone!</h2>
+        <div class="score" id="finalScore">0/10</div>
+        <div class="score-details" id="scoreDetails"></div>
+        <div class="thank-you">
+            <p><strong>Dziękujemy za udział w badaniu!</strong></p>
+            <p>Twoje odpowiedzi zostały zapisane i pomogą w rozwoju badań nad sztuczną inteligencją.</p>
+        </div>
+        <div class="download-results">
+            <button class="download-btn" onclick="downloadResults()">💾 Pobierz swoje wyniki</button>
+            <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
+                Opcjonalnie możesz pobrać plik ze swoimi odpowiedziami
+            </p>
+        </div>
+        <button class="restart-btn" onclick="restartQuiz()">🔄 Rozpocznij ponownie</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
