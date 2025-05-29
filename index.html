@@ -136,13 +136,10 @@
         <div class="score-details" id="scoreDetails"></div>
         <div class="thank-you">
             <p><strong>Dziękujemy za udział w badaniu!</strong></p>
-            <p>Twoje odpowiedzi zostały zapisane i pomogą w rozwoju badań nad sztuczną inteligencją.</p>
-        </div>
-        <div class="download-results">
-            <button class="download-btn" onclick="downloadResults()">💾 Pobierz swoje wyniki</button>
-            <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
-                Opcjonalnie możesz pobrać plik ze swoimi odpowiedziami
-            </p>
+            <p>Twoje odpowiedzi zostały automatycznie zapisane i pomogą w rozwoju badań nad sztuczną inteligencją.</p>
+            <div class="save-status" id="saveStatus">
+                <p>💾 Zapisywanie danych...</p>
+            </div>
         </div>
         <button class="restart-btn" onclick="restartQuiz()">🔄 Rozpocznij ponownie</button>
     </div>
