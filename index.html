@@ -7,18 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Human vs. AI</h1>
-        <p class="subtitle">____</p>
-        <p class="subtitle">Badanie prowadzone w ramach doktoratu:</p>
-        <p class="subtitle">Możliwości zastosowania GenAI do opracowania i ewaluacji map statystycznych</p>
-        <p class="subtitle">Marta Solarz, Międzydziedzinowa Szkoła Doktorska UW</p>
-        <p class="subtitle">____</p>
-    </div>
-
     <!-- Ekran startowy -->
     <div class="start-screen" id="startScreen">
+        <div class="header">
+            <h1>Quiz: Human vs. AI</h1>
+            <p class="subtitle">____</p>
+            <p class="subtitle">Badanie prowadzone w ramach doktoratu:</p>
+            <p class="subtitle">Możliwości zastosowania GenAI do opracowania i ewaluacji map statystycznych</p>
+            <p class="subtitle">Marta Solarz, Międzydziedzinowa Szkoła Doktorska UW</p>
+            <p class="subtitle">____</p>
+        </div>
         <div style="display: none;" id="startContent">
             <div class="quiz-description">
                 <div class="description-box">
@@ -33,7 +31,7 @@
                 </div>
             </div>
 
-            <button class="start-btn" onclick="goToMetric()" id="goToMetricButton">Przejdź do Quizu</button>
+            <button class="start-btn" onclick="goToMetric()" id="goToMetricButton">Rozpocznij quiz!</button>
             <p style="margin-top: 20px; color: #666;">
                 <small id="questionsCount">Pytania: ładowanie...</small>
             </p>
@@ -42,11 +40,16 @@
 
     <!-- Ekran metryczki -->
     <div class="form-screen" id="formScreen">
+        <div class="header">
+            <h1>Metryczka</h1>
+            <p class="subtitle">____</p>
+            <p class="subtitle">Dane demograficzne są zbierane w celach badawczych.</p>
+            <p class="subtitle">____</p>
+        </div>
         <div class="loading" id="loadingMessage">
             Ładowanie pytań badawczych...
         </div>
             <div class="demographics-form" id="demographicsForm">
-                <h3>Metryczka</h3>
                 <div class="form-group">
                     <label for="gender">Płeć:</label>
                     <select id="gender" required>
@@ -96,7 +99,9 @@
 
     <!-- Ekran quizu -->
     <div class="quiz-screen" id="quizScreen">
-        <div class="question-counter" id="questionCounter">Pytanie 1 z 10</div>
+        <div class="header">
+            <h1 id="questionCounter">Pytanie 1 z 10</h1>
+        </div>
         <div class="progress">
             <div class="progress-bar" id="progressBar"></div>
         </div>
@@ -118,7 +123,8 @@
 
     <!-- Ekran wyników -->
     <div class="results-screen" id="resultsScreen">
-        <h2>🎉 Quiz zakończony!</h2>
+        <h1 class="header">Quiz zakończony!</h1>
+        <h2>Twój wynik:</h2>
         <div class="score" id="finalScore">0/10</div>
         <div class="score-details" id="scoreDetails"></div>
         <div class="thank-you">
@@ -128,10 +134,9 @@
                 <p>Zapisywanie danych...</p>
             </div>
         </div>
-        <button class="restart-btn" onclick="restartQuiz()">Rozwiąż ponownie z nową bazą pytań</button>
+        <button class="restart-btn" onclick="restartQuiz()">Rozwiąż ponownie quiz z nową bazą pytań!</button>
     </div>
-</div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
