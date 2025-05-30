@@ -11,7 +11,7 @@ let sessionId = '';
 
 const numberOfQuestions = 10;
 const needToValidateDemographics = true;
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0cSnH2PjqbwkpZuxwYJO-YyxCVhgBIK6vyO2P1tzuhVNqBKmA1fWlk44aSZjDnBoQnQ/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxzVZxUiJDDVaTXWJcQwpUnWsYdRwiPo6TL51K5F4jaQc6lUHmCTUasH1ZzVRBJDXa1sA/exec';
 const MAP_IMAGE_BASE_PATH = 'maps/';
 
 function generateSessionId() {
@@ -311,35 +311,33 @@ function showResults() {
 async function saveResultsToSheets() {
     const saveStatusDiv = document.getElementById('saveStatus');
     saveStatusDiv.innerHTML = '<p>Przygotowywanie danych do zapisu...</p>';
-    saveStatusDiv.className = 'save-status'; // Reset class
+    saveStatusDiv.className = 'save-status';
 
-    const dataToSend = quizAttemptResults.map(result => ({
+    const dataToSendStructure = {
         sessionId: participantData.sessionId,
-        timestampStart: participantData.timestampStart,
-        birthYear: participantData.birthYear,
-        age: participantData.age,
-        gender: participantData.gender,
-        education: participantData.education,
-        questionOriginalID: result.questionOriginalID,
-        operation: result.operation,
-        mapID: result.mapID,
-        selectedAISource: result.selectedAISource,
-        selectedAIResponseFragment: result.selectedAIResponse.substring(0, 250),
-        selectedHumanSource: result.selectedHumanSource,
-        selectedHumanResponseFragment: result.selectedHumanResponse.substring(0, 250),
-        slotForAI: result.slotForAI,
-        slotForHuman: result.slotForHuman,
-        userSelectedSlot: result.userSelectedSlot,
-        isCorrect: result.isCorrect,
-        questionIndexInQuiz: result.questionIndexInQuiz,
-        timestampAnswer: result.timestampAnswer,
-        totalQuizQuestions: currentProcessedQuestions.length,
-        finalScore: score,
-        finalPercentage: currentProcessedQuestions.length > 0 ? Math.round((score / currentProcessedQuestions.length) * 100) : 0,
-        completedAt: new Date().toISOString()
-    }));
+        demographics: participantData,
+        quizData: quizAttemptResults.map(result => ({
+            questionOriginalID: result.questionOriginalID,
+            operation: result.operation,
+            mapID: result.mapID,
+            selectedAISource: result.selectedAISource,
+            selectedAIResponseFragment: result.selectedAIResponse.substring(0, 250),
+            selectedHumanSource: result.selectedHumanSource,
+            selectedHumanResponseFragment: result.selectedHumanResponse.substring(0, 250),
+            slotForAI: result.slotForAI,
+            slotForHuman: result.slotForHuman,
+            userSelectedSlot: result.userSelectedSlot,
+            isCorrect: result.isCorrect,
+            questionIndexInQuiz: result.questionIndexInQuiz,
+            timestampAnswer: result.timestampAnswer,
+            totalQuizQuestions: currentProcessedQuestions.length,
+            finalScore: score,
+            finalPercentage: currentProcessedQuestions.length > 0 ? Math.round((score / currentProcessedQuestions.length) * 100) : 0,
+            completedAt: new Date().toISOString()
+        }))
+    };
 
-    console.log('Dane do wysłania do Google Sheets:', dataToSend);
+    console.log('Dane do wysłania do Google Sheets:', dataToSendStructure);
 
     if (GOOGLE_SCRIPT_URL === 'TUTAJ_WSTAW_URL_DO_GOOGLE_APPS_SCRIPT' || GOOGLE_SCRIPT_URL.trim() === '') {
         console.warn('URL do Google Apps Script nie jest skonfigurowany. Dane nie zostaną wysłane.');
@@ -353,26 +351,46 @@ async function saveResultsToSheets() {
         saveStatusDiv.innerHTML = '<p>Wysyłanie danych...</p>';
         const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
-            mode: 'no-cors',
+            mode: 'cors',
             cache: 'no-cache',
             headers: {
                 'Content-Type': 'application/json',
             },
             redirect: 'follow',
-            body: JSON.stringify({
-                sessionId: participantData.sessionId,
-                demographics: participantData,
-                quizData: dataToSend
-            })
+            body: JSON.stringify(dataToSendStructure)
         });
 
-        saveStatusDiv.innerHTML = '<p>✅ Dane zostały wysłane! (status wysyłania przy no-cors może być niepewny)</p>';
-        saveStatusDiv.className = 'save-status success';
-        console.log('Dane prawdopodobnie wysłane do Google Sheets.');
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('Odpowiedź z Google Sheets:', responseData);
+
+            if (responseData.success) {
+                saveStatusDiv.innerHTML = '<p>Dane zostały pomyślnie zapisane!</p>';
+                saveStatusDiv.className = 'save-status success';
+            } else {
+                saveStatusDiv.innerHTML = `<p>Błąd po stronie serwera: ${responseData.error || 'Nieznany błąd serwera.'}</p>`;
+                saveStatusDiv.className = 'save-status error';
+                saveToLocalStorage({ participant: participantData, results: quizAttemptResults, summary: {finalScore: score, totalQuestions: currentProcessedQuestions.length}});
+            }
+        } else {
+            let errorText = `Błąd HTTP: ${response.status} ${response.statusText}`;
+            try {
+                const errorData = await response.json();
+                if (errorData && errorData.error) {
+                    errorText += ` - ${errorData.error}`;
+                }
+            } catch (e) {
+                console.warn('Nie można sparsować błędu JSON z odpowiedzi:', e);
+            }
+            console.error('Błąd odpowiedzi HTTP od Google Sheets:', errorText);
+            saveStatusDiv.innerHTML = `<p>Błąd odpowiedzi serwera: ${errorText}. Dane zapisane lokalnie.</p>`;
+            saveStatusDiv.className = 'save-status error';
+            saveToLocalStorage({ participant: participantData, results: quizAttemptResults, summary: {finalScore: score, totalQuestions: currentProcessedQuestions.length}});
+        }
 
     } catch (error) {
-        console.error('Błąd wysyłania do Google Sheets:', error);
-        saveStatusDiv.innerHTML = `<p>❌ Błąd podczas wysyłania danych. Sprawdź konsolę.<br>Dane zapisane lokalnie jako backup.</p>`;
+        console.error('Błąd sieciowy lub błąd wykonania fetch do Google Sheets:', error);
+        saveStatusDiv.innerHTML = `<p>Błąd sieciowy podczas wysyłania danych: ${error.message}.<br>Dane zapisane lokalnie jako backup.</p>`;
         saveStatusDiv.className = 'save-status error';
         saveToLocalStorage({ participant: participantData, results: quizAttemptResults, summary: {finalScore: score, totalQuestions: currentProcessedQuestions.length}});
     }
