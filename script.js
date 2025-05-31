@@ -11,7 +11,7 @@ let sessionId = '';
 
 const numberOfQuestions = 10;
 const needToValidateDemographics = true;
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxzVZxUiJDDVaTXWJcQwpUnWsYdRwiPo6TL51K5F4jaQc6lUHmCTUasH1ZzVRBJDXa1sA/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwPk-bmMHDav6D5gqddUJGcFWtRJKwUa5XSByufnrXhSGXtAXRpsv-FrZwyTGCoP_ky7g/exec';
 const MAP_IMAGE_BASE_PATH = 'maps/';
 
 function generateSessionId() {
@@ -42,8 +42,6 @@ async function loadQuestionsFile() {
         if (allQuestionsData && allQuestionsData.length > 0) {
             document.getElementById('loadingMessage').style.display = 'none';
             document.getElementById('startContent').style.display = 'block';
-            document.getElementById('questionsCount').textContent =
-                `Liczba dostępnych pytań w bazie: ${allQuestionsData.length}`;
         } else {
             throw new Error('Nie znaleziono pytań w pliku lub plik jest pusty.');
         }
@@ -135,7 +133,6 @@ function startQuiz() {
                 originalID: originalQuestion.ID,
                 operation: originalQuestion.Operation,
                 mapID: originalQuestion.MapID,
-                questionText: originalQuestion.QuestionText,
                 selectedAIModelName: aiResponse.modelName,
                 selectedAIResponseText: aiResponse.responseText,
                 selectedHumanID: humanResponse.humanID,
