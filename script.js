@@ -133,6 +133,7 @@ function startQuiz() {
                 originalID: originalQuestion.ID,
                 operation: originalQuestion.Operation,
                 mapID: originalQuestion.MapID,
+                questionText: originalQuestion.QuestionText,
                 selectedAIModelName: aiResponse.modelName,
                 selectedAIResponseText: aiResponse.responseText,
                 selectedHumanID: humanResponse.humanID,
