@@ -40,7 +40,7 @@ def convert_to_json(input_file_path, output_file_path):
     ]
     human_columns = ["Human1", "Human2", "Human3"]
 
-    expected_base_columns = ["ID", "Operation", "MapID", "QuestionText"]
+    expected_base_columns = ["ID", "Operation", "MapID", "MapTitle", "MapSource", "QuestionText"]
     all_expected_columns = expected_base_columns + ai_model_columns + human_columns
     missing_columns = [col for col in all_expected_columns if col not in df.columns]
     if missing_columns:
@@ -72,7 +72,6 @@ def convert_to_json(input_file_path, output_file_path):
                 })
         question_entry["AIResponses"] = ai_responses
 
-        # Zbieranie odpowiedzi ludzi
         human_responses = []
         for human_id in human_columns:
             if human_id in row:

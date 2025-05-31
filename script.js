@@ -133,6 +133,7 @@ function startQuiz() {
                 originalID: originalQuestion.ID,
                 operation: originalQuestion.Operation,
                 mapID: originalQuestion.MapID,
+                mapSource: originalQuestion.MapSource,
                 questionText: originalQuestion.QuestionText,
                 selectedAIModelName: aiResponse.modelName,
                 selectedAIResponseText: aiResponse.responseText,
@@ -214,6 +215,8 @@ function displayQuestion() {
     } else {
         imageContainer.innerHTML = '';
     }
+
+    document.getElementById("mapSource").textContent = "Źródło mapy: " + (question.mapSource ? question.mapSource : 'Brak');
 
     const answersContainer = document.getElementById('answers');
     answersContainer.innerHTML = `

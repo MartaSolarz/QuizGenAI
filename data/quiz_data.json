@@ -3,6 +3,8 @@
         "ID": 1,
         "Operation": "Compare",
         "MapID": "SINGLE-G-ATL-1",
+        "MapTitle": "Net Migration per 1000 inhabitants in 2014",
+        "MapSource": "Poland in the modern world: Atlas of Poland’s Political Geography, M.W. Solarz, wyd. 2018",
         "QuestionText": "Porównaj wartość wskaźnika przedstawionego na mapie dla Danii i Słowenii. W którym kraju wartość wskaźnika jest niższa i o ile?",
         "AIResponses": [
             {
@@ -69,6 +71,8 @@
         "ID": 2,
         "Operation": "Compare",
         "MapID": "SINGLE-G-ATL-2",
+        "MapTitle": "Professionals",
+        "MapSource": "The social atlas of Europe / Dimitris Ballas, Danny Dorling and Benjamin Hennig, 2014",
         "QuestionText": "Porównaj wartość wskaźnika przedstawionego na mapie dla Szwajcarii i Austrii. W którym z tych krajów wartość wskaźnika jest wyższa i o ile? ",
         "AIResponses": [
             {
@@ -135,6 +139,8 @@
         "ID": 3,
         "Operation": "Compare",
         "MapID": "SINGLE-G-INST-1",
+        "MapTitle": "Share of energy from renewable sources in % of gross final energu consumption, 2017",
+        "MapSource": "The Netherlands\non the European scale, 2019, CBS",
         "QuestionText": "Porównaj wartość wskaźnika przedstawionego na mapie dla Finlandii, Szwecji, Niemiec i Danii. W którym z tych krajów wartość wskaźnika jest najniższa i o ile? ",
         "AIResponses": [
             {
@@ -201,6 +207,8 @@
         "ID": 4,
         "Operation": "Compare",
         "MapID": "SINGLE-D-ATL-1",
+        "MapTitle": "People aged 25-64 years with teritiary educational attainment, 2010",
+        "MapSource": "The social atlas of Europe / Dimitris Ballas, Danny Dorling and Benjamin Hennig, 2014",
         "QuestionText": "Porównaj regiony Europy Północnej z regionami Europy Południowej. Czy widoczna jest zauważalna różnica w poziomie wykształcenia wyższego? ",
         "AIResponses": [
             {
@@ -267,6 +275,8 @@
         "ID": 5,
         "Operation": "Compare",
         "MapID": "SINGLE-D-INST-1",
+        "MapTitle": "Harvested production of cereals, 2022",
+        "MapSource": "Eurostat - IMAGE, 06/2024",
         "QuestionText": "Korzystając z mapy, porównaj zbiory zbóż w Bretanii (Francja) i Apulii (Włochy). Gdzie zbiory były większe i o ile?",
         "AIResponses": [
             {
@@ -333,6 +343,8 @@
         "ID": 6,
         "Operation": "Compare",
         "MapID": "SINGLE-D-INST-2",
+        "MapTitle": "Air passengers, 2019",
+        "MapSource": "Eurostat - GISCO, 04/2021",
         "QuestionText": "Porównaj Leinster (Irlandia) i Południowe Morawy (Czechy) pod względem liczby pasażerów przypadających na 1000 mieszkańców. Czy któryś z tych regionów charakteryzuje się wyraźnie wyższą wartością wskaźnika, jeśli tak, to ile wynosi różnica?",
         "AIResponses": [
             {
@@ -399,6 +411,8 @@
         "ID": 7,
         "Operation": "Compare",
         "MapID": "SINGLE-D-INST-3",
+        "MapTitle": "Death rates and main causes of death, 2020",
+        "MapSource": "Eurostat - GISCO, 06/2023",
         "QuestionText": "Porównaj udział innych przyczyn zgonów w Czechach i Portugalii. W którym z tych krajów inne przyczyny zgonów stanowią większy udział we wszystkich przyczynach zgonów? ",
         "AIResponses": [
             {
@@ -465,6 +479,8 @@
         "ID": 8,
         "Operation": "Compare",
         "MapID": "SINGLE-D-INST-4",
+        "MapTitle": "People with at least an upper secondary education qualification, 2021",
+        "MapSource": "Eurostat - GISCO, 06/2022",
         "QuestionText": "Porównaj odsetek osób z co najmniej średnim wykształceniem w regionie Algarve i na Sycylii. W którym z tych regionów wartości są niższe i jaka jest różnica? ",
         "AIResponses": [
             {
@@ -531,6 +547,8 @@
         "ID": 9,
         "Operation": "Compare",
         "MapID": "MULTI-G-ATL-1",
+        "MapTitle": "Population density in 2016",
+        "MapSource": "Poland in the modern world: Atlas of Poland’s Political Geography, M.W. Solarz, wyd. 2018",
         "QuestionText": "Porównaj liczby ludności Danii i Czech przedstawione na mapie. Jaka jest liczba ludności każdego z tych krajów? Który kraj ma większą populację? Jaka jest różnica między populacjami tych krajów?",
         "AIResponses": [
             {
@@ -597,6 +615,8 @@
         "ID": 10,
         "Operation": "Compare",
         "MapID": "MULTI-G-ATL-2",
+        "MapTitle": "Number of arrests for terrorism in 2014-2015",
+        "MapSource": "Poland in the modern world: Atlas of Poland’s Political Geography, M.W. Solarz, wyd. 2018",
         "QuestionText": "Porównaj kraje Europy Zachodniej i Środkowej pod względem liczby osadzonych na 100 000 mieszkańców. Który region ma wyższy wskaźnik? ",
         "AIResponses": [
             {
@@ -663,6 +683,8 @@
         "ID": 11,
         "Operation": "Compare",
         "MapID": "MULTI-G-INST-1",
+        "MapTitle": "Maritime freight handled, 2020 and 2021",
+        "MapSource": "Eurostat - GISCO, 08/2023",
         "QuestionText": "Porównaj wolumen ładunków morskich przychodzących (Inwards) w portach w Amsterdamie i Hamburgu w 2021 roku. Który z nich obsłużył większy wolumen ładunków przychodzących?",
         "AIResponses": [
             {
@@ -729,6 +751,8 @@
         "ID": 12,
         "Operation": "Compare",
         "MapID": "MULTI-G-INST-2",
+        "MapTitle": "Emission of air pollutions in EU countries in 2015",
+        "MapSource": "Statistical Atlas of Poland, 2018, GUS",
         "QuestionText": "Porównaj emisje gazów cieplarnianych w Polsce i Francji. Który kraj ma wyższe emisje per capita i o ile?",
         "AIResponses": [
             {
@@ -795,6 +819,8 @@
         "ID": 13,
         "Operation": "Compare",
         "MapID": "MULTI-G-INST-3",
+        "MapTitle": "Confidence in the European Parliament in EU countries in 2016",
+        "MapSource": "Statistical Atlas of Poland, 2018, GUS",
         "QuestionText": "Porównaj poziom zaufania do Parlamentu Europejskiego w Hiszpanii i we Włoszech. W którym kraju odsetek ludności deklarującej zaufanie jest wyższy i o ile? ",
         "AIResponses": [
             {
@@ -861,6 +887,8 @@
         "ID": 14,
         "Operation": "Compare",
         "MapID": "MULTI-D-ATL-1",
+        "MapTitle": "Acting together",
+        "MapSource": "ESPON Atlas, 2006",
         "QuestionText": "Porównaj regiony Andaluzji i Katalonii pod względem liczby transnarodowych projektów współpracy. Ile wynosi różnica?",
         "AIResponses": [
             {
@@ -927,6 +955,8 @@
         "ID": 15,
         "Operation": "Compare",
         "MapID": "MULTI-D-ATL-2",
+        "MapTitle": "MEGAs & competitiveness",
+        "MapSource": "ESPON Atlas, 2006",
         "QuestionText": "Porównaj wskaźniki działalności badawczo-rozwojowej (B+R) przedstawione na mapie dla regionów Berlina i Paryża. Który z tych dwóch obszarów wykazuje wyższe wartości? ",
         "AIResponses": [
             {
@@ -993,6 +1023,8 @@
         "ID": 16,
         "Operation": "Compare",
         "MapID": "MULTI-D-ATL-3",
+        "MapTitle": "Intensity of co-operation",
+        "MapSource": "ESPON Atlas, 2006",
         "QuestionText": "Porównaj regiony Europy Północnej z regionami Europy Południowej pod względem wartości projektów „ważonych populacją”. W której części kontynentu wskaźnik ten jest wyższy? ",
         "AIResponses": [
             {
@@ -1059,6 +1091,8 @@
         "ID": 17,
         "Operation": "Cluster",
         "MapID": "SINGLE-G-ATL-1",
+        "MapTitle": "Net Migration per 1000 inhabitants in 2014",
+        "MapSource": "Poland in the modern world: Atlas of Poland’s Political Geography, M.W. Solarz, wyd. 2018",
         "QuestionText": "Sprawdź, czy można uznać, że kraje Beneluksu tworzą klaster pod względem wartości wskaźnika. Uzasadnij swoją odpowiedź danymi z mapy. ",
         "AIResponses": [
             {
@@ -1125,6 +1159,8 @@
         "ID": 18,
         "Operation": "Cluster",
         "MapID": "SINGLE-G-ATL-2",
+        "MapTitle": "Professionals",
+        "MapSource": "The social atlas of Europe / Dimitris Ballas, Danny Dorling and Benjamin Hennig, 2014",
         "QuestionText": "Oceń, czy kraje Grupy Wyszehradzkiej tworzą jednolity klaster (charakteryzują się taką samą wartością wskaźnika dotyczącego specjalistów jako % siły roboczej). Jeśli tak – na jakim poziomie kształtuje się ten wskaźnik? Jeśli nie – wskaż kraj lub kraje, które się wyróżniają. ",
         "AIResponses": [
             {
@@ -1191,6 +1227,8 @@
         "ID": 19,
         "Operation": "Cluster",
         "MapID": "SINGLE-G-INST-1",
+        "MapTitle": "Share of energy from renewable sources in % of gross final energu consumption, 2017",
+        "MapSource": "The Netherlands\non the European scale, 2019, CBS",
         "QuestionText": "Oceń, czy można uznać, że kraje położone nad Morzem Bałtyckim tworzą w większości spójny obszar pod względem wartości wskaźnika. Wymień kraje wchodzące w skład tego klastra oraz te, które się od niego różnią. ",
         "AIResponses": [
             {
@@ -1257,6 +1295,8 @@
         "ID": 20,
         "Operation": "Cluster",
         "MapID": "SINGLE-D-ATL-1",
+        "MapTitle": "People aged 25-64 years with teritiary educational attainment, 2010",
+        "MapSource": "The social atlas of Europe / Dimitris Ballas, Danny Dorling and Benjamin Hennig, 2014",
         "QuestionText": "Oceń, czy regiony metropolitalne (duże obszary miejskie) wyróżniają się na mapie jako klaster o wyższym udziale osób z wykształceniem wyższym w porównaniu do obszarów wiejskich. Podaj trzy przykłady regionów, które potwierdzają lub obalają tę tezę, opierając się na mapie. ",
         "AIResponses": [
             {
@@ -1323,6 +1363,8 @@
         "ID": 21,
         "Operation": "Cluster",
         "MapID": "SINGLE-D-INST-1",
+        "MapTitle": "Harvested production of cereals, 2022",
+        "MapSource": "Eurostat - IMAGE, 06/2024",
         "QuestionText": "Czy możesz zidentyfikować klaster regionów o bardzo wysokiej produkcji zbóż (ponad 8 milionów ton) w określonej części Europy? Jeśli tak, które kraje wchodzą w skład tej grupy?",
         "AIResponses": [
             {
@@ -1389,6 +1431,8 @@
         "ID": 22,
         "Operation": "Cluster",
         "MapID": "SINGLE-D-INST-2",
+        "MapTitle": "Air passengers, 2019",
+        "MapSource": "Eurostat - GISCO, 04/2021",
         "QuestionText": "Oceń, czy regiony nadmorskie i wyspiarskie w południowej Europie tworzą wyraźny klaster wartości wskaźnika, ze względu np. na wysoki udział turystów wśród pasażerów. Czy mapa potwierdza tę hipotezę? Uzasadnij odpowiedź.",
         "AIResponses": [
             {
@@ -1455,6 +1499,8 @@
         "ID": 23,
         "Operation": "Cluster",
         "MapID": "SINGLE-D-INST-3",
+        "MapTitle": "Death rates and main causes of death, 2020",
+        "MapSource": "Eurostat - GISCO, 06/2023",
         "QuestionText": "Czy można zidentyfikować wyraźny klaster regionów o bardzo wysokich wskaźnikach umieralności (≥1500) w określonej części Europy? Jeśli tak, które kraje wchodzą w skład tego klastra? ",
         "AIResponses": [
             {
@@ -1521,6 +1567,8 @@
         "ID": 24,
         "Operation": "Cluster",
         "MapID": "SINGLE-D-INST-4",
+        "MapTitle": "People with at least an upper secondary education qualification, 2021",
+        "MapSource": "Eurostat - GISCO, 06/2022",
         "QuestionText": "Czy na mapie można zidentyfikować wyraźny klaster regionów, w których odsetek osób z wykształceniem średnim jest wysoki (co najmniej 90%)? Jeśli tak, które kraje wchodzą w skład tego klastra?",
         "AIResponses": [
             {
@@ -1587,6 +1635,8 @@
         "ID": 25,
         "Operation": "Cluster",
         "MapID": "MULTI-G-ATL-1",
+        "MapTitle": "Population density in 2016",
+        "MapSource": "Poland in the modern world: Atlas of Poland’s Political Geography, M.W. Solarz, wyd. 2018",
         "QuestionText": "Wskaż kraje o najwyższej gęstości zaludnienia. Czy tworzą one wyraźny klaster, czy są rozproszone?",
         "AIResponses": [
             {
@@ -1653,6 +1703,8 @@
         "ID": 26,
         "Operation": "Cluster",
         "MapID": "MULTI-G-ATL-2",
+        "MapTitle": "Number of arrests for terrorism in 2014-2015",
+        "MapSource": "Poland in the modern world: Atlas of Poland’s Political Geography, M.W. Solarz, wyd. 2018",
         "QuestionText": "Na podstawie mapy oceń, czy terroryzm motywowany religijnie koncentruje się w określonych regionach Europy, czy jest rozproszony w wielu krajach. ",
         "AIResponses": [
             {
@@ -1719,6 +1771,8 @@
         "ID": 27,
         "Operation": "Cluster",
         "MapID": "MULTI-G-INST-1",
+        "MapTitle": "Maritime freight handled, 2020 and 2021",
+        "MapSource": "Eurostat - GISCO, 08/2023",
         "QuestionText": "Przyjrzyj się regionowi Morza Adriatyckiego. Czy porty w tym obszarze tworzą klaster o zbliżonych wartościach przeładunku, czy występują między nimi istotne różnice?",
         "AIResponses": [
             {
@@ -1785,6 +1839,8 @@
         "ID": 28,
         "Operation": "Cluster",
         "MapID": "MULTI-G-INST-2",
+        "MapTitle": "Emission of air pollutions in EU countries in 2015",
+        "MapSource": "Statistical Atlas of Poland, 2018, GUS",
         "QuestionText": "Zidentyfikuj, czy w Europie Środkowej występuje klaster krajów o podobnym (wysokim lub niskim) poziomie emisji CO₂. Jeśli tak, to które kraje wchodzą w skład tego klastra?",
         "AIResponses": [
             {
@@ -1851,6 +1907,8 @@
         "ID": 29,
         "Operation": "Cluster",
         "MapID": "MULTI-G-INST-3",
+        "MapTitle": "Confidence in the European Parliament in EU countries in 2016",
+        "MapSource": "Statistical Atlas of Poland, 2018, GUS",
         "QuestionText": "Oceń, czy istnieje zauważalny klaster krajów, w których zaufanie do Parlamentu Europejskiego wzrosło od 2010 roku.",
         "AIResponses": [
             {
@@ -1917,6 +1975,8 @@
         "ID": 30,
         "Operation": "Cluster",
         "MapID": "MULTI-D-ATL-1",
+        "MapTitle": "Acting together",
+        "MapSource": "ESPON Atlas, 2006",
         "QuestionText": "Zidentyfikuj na mapie obszary, które biorą udział w wysokiej liczbie transnarodowych projektów. Czy tworzą one wyraźny klaster w konkretnej części Europy?",
         "AIResponses": [
             {
@@ -1983,6 +2043,8 @@
         "ID": 31,
         "Operation": "Cluster",
         "MapID": "MULTI-D-ATL-2",
+        "MapTitle": "MEGAs & competitiveness",
+        "MapSource": "ESPON Atlas, 2006",
         "QuestionText": "Sprawdź, czy miasta o dominującej funkcji „uniwersyteckiej” (widocznej na wykresach kołowych) grupują się wokół głównych ośrodków akademickich i badawczych w Europie. Uzasadnij odpowiedź korzystając z danych zaprezentowanych na mapie. ",
         "AIResponses": [
             {
@@ -2049,6 +2111,8 @@
         "ID": 32,
         "Operation": "Cluster",
         "MapID": "MULTI-D-ATL-3",
+        "MapTitle": "Intensity of co-operation",
+        "MapSource": "ESPON Atlas, 2006",
         "QuestionText": "Zidentyfikuj na mapie obszary (regiony lub kraje) o najwyższej bezwzględnej liczbie projektów. Czy tworzą one jeden spójny klaster, czy są rozproszone w różnych częściach Europy? Które konkretne regiony/kraje wchodzą w skład tej grupy?",
         "AIResponses": [
             {
@@ -2115,6 +2179,8 @@
         "ID": 33,
         "Operation": "Associate",
         "MapID": "SINGLE-G-ATL-1",
+        "MapTitle": "Net Migration per 1000 inhabitants in 2014",
+        "MapSource": "Poland in the modern world: Atlas of Poland’s Political Geography, M.W. Solarz, wyd. 2018",
         "QuestionText": "Czy na podstawie mapy można powiązać dodatnie saldo migracji z położeniem kraju nad Morzem Śródziemnym? Uzasadnij swoją odpowiedź. ",
         "AIResponses": [
             {
@@ -2181,6 +2247,8 @@
         "ID": 34,
         "Operation": "Associate",
         "MapID": "SINGLE-G-ATL-2",
+        "MapTitle": "Professionals",
+        "MapSource": "The social atlas of Europe / Dimitris Ballas, Danny Dorling and Benjamin Hennig, 2014",
         "QuestionText": "Oceń, czy prawdziwe jest stwierdzenie, że kraje o większej liczbie ludności mają niższy odsetek specjalistów w % siły roboczej. Podaj dwa przykłady krajów, które potwierdzają Twoją ocenę.",
         "AIResponses": [
             {
@@ -2247,6 +2315,8 @@
         "ID": 35,
         "Operation": "Associate",
         "MapID": "SINGLE-G-INST-1",
+        "MapTitle": "Share of energy from renewable sources in % of gross final energu consumption, 2017",
+        "MapSource": "The Netherlands\non the European scale, 2019, CBS",
         "QuestionText": "Czy na podstawie mapy można jednoznacznie stwierdzić, że regiony o wysokim nasłonecznieniu (położone w południowej Europie) charakteryzują się większym udziałem energii ze źródeł odnawialnych niż kraje położone na północy? Uzasadnij swoją odpowiedź, odwołując się do danych przedstawionych na mapie.",
         "AIResponses": [
             {
@@ -2313,6 +2383,8 @@
         "ID": 36,
         "Operation": "Associate",
         "MapID": "SINGLE-D-ATL-1",
+        "MapTitle": "People aged 25-64 years with teritiary educational attainment, 2010",
+        "MapSource": "The social atlas of Europe / Dimitris Ballas, Danny Dorling and Benjamin Hennig, 2014",
         "QuestionText": "Oceń, czy wysoki odsetek osób z wykształceniem wyższym częściej występuje w gęsto zaludnionych regionach (aglomeracjach). Jak może to być powiązane z dostępnością uczelni wyższych?",
         "AIResponses": [
             {
@@ -2379,6 +2451,8 @@
         "ID": 37,
         "Operation": "Associate",
         "MapID": "SINGLE-D-INST-1",
+        "MapTitle": "Harvested production of cereals, 2022",
+        "MapSource": "Eurostat - IMAGE, 06/2024",
         "QuestionText": "Czy regiony o najwyższej produkcji zbóż pokrywają się z obszarami znanymi z intensywnego rolnictwa? Podaj dwa przykłady potwierdzające Twoją opinię.",
         "AIResponses": [
             {
@@ -2445,6 +2519,8 @@
         "ID": 38,
         "Operation": "Associate",
         "MapID": "SINGLE-D-INST-2",
+        "MapTitle": "Air passengers, 2019",
+        "MapSource": "Eurostat - GISCO, 04/2021",
         "QuestionText": "Czy regiony o najniższej łącznej liczbie pasażerów pokrywają się z regionami o najniższym wskaźniku liczby pasażerów na 1000 mieszkańców? Podaj dwa przykłady, które potwierdzają lub obalają to twierdzenie.",
         "AIResponses": [
             {
@@ -2511,6 +2587,8 @@
         "ID": 39,
         "Operation": "Associate",
         "MapID": "SINGLE-D-INST-3",
+        "MapTitle": "Death rates and main causes of death, 2020",
+        "MapSource": "Eurostat - GISCO, 06/2023",
         "QuestionText": "Czy dostrzegasz związek między wysokimi wskaźnikami umieralności (≥1500) a dominacją konkretnej przyczyny zgonów? Podaj trzy przykłady, które potwierdzają Twoje stanowisko.",
         "AIResponses": [
             {
@@ -2577,6 +2655,8 @@
         "ID": 40,
         "Operation": "Associate",
         "MapID": "SINGLE-D-INST-4",
+        "MapTitle": "People with at least an upper secondary education qualification, 2021",
+        "MapSource": "Eurostat - GISCO, 06/2022",
         "QuestionText": "Czy regiony stołeczne wykazują na ogół wyższy poziom wykształcenia niż inne regiony w danym kraju? Uzasadnij swoją odpowiedź, podając dwa przykłady.",
         "AIResponses": [
             {
@@ -2643,6 +2723,8 @@
         "ID": 41,
         "Operation": "Associate",
         "MapID": "MULTI-G-ATL-1",
+        "MapTitle": "Population density in 2016",
+        "MapSource": "Poland in the modern world: Atlas of Poland’s Political Geography, M.W. Solarz, wyd. 2018",
         "QuestionText": "Czy regiony o niskiej gęstości zaludnienia zawsze mają małą liczbę ludności? Jeśli istnieją wyjątki, podaj jeden przykład.",
         "AIResponses": [
             {
@@ -2709,6 +2791,8 @@
         "ID": 42,
         "Operation": "Associate",
         "MapID": "MULTI-G-ATL-2",
+        "MapTitle": "Number of arrests for terrorism in 2014-2015",
+        "MapSource": "Poland in the modern world: Atlas of Poland’s Political Geography, M.W. Solarz, wyd. 2018",
         "QuestionText": "Na podstawie danych z mapy, czy istnieje korelacja między wysoką liczbą aresztowań związanych z terroryzmem a wyższym wskaźnikiem osadzeń w więzieniach? Uzasadnij swoją odpowiedź, podając przykład z mapy. ",
         "AIResponses": [
             {
@@ -2775,6 +2859,8 @@
         "ID": 43,
         "Operation": "Associate",
         "MapID": "MULTI-G-INST-1",
+        "MapTitle": "Maritime freight handled, 2020 and 2021",
+        "MapSource": "Eurostat - GISCO, 08/2023",
         "QuestionText": "Określ, czy porty o dużym wolumenie przeładunków obsługują głównie ładunki przychodzące, wychodzące, czy wartości te są zbliżone. Jak zmieniły się wartości przeładunku między rokiem 2020 a 2021?",
         "AIResponses": [
             {
@@ -2841,6 +2927,8 @@
         "ID": 44,
         "Operation": "Associate",
         "MapID": "MULTI-G-INST-2",
+        "MapTitle": "Emission of air pollutions in EU countries in 2015",
+        "MapSource": "Statistical Atlas of Poland, 2018, GUS",
         "QuestionText": "Sprawdź, czy kraje o wyższych emisjach przemysłowych (np. tlenków azotu) mają również większy udział niemetanowych lotnych związków organicznych. Czy te dwie wartości często się pokrywają?",
         "AIResponses": [
             {
@@ -2907,6 +2995,8 @@
         "ID": 45,
         "Operation": "Associate",
         "MapID": "MULTI-G-INST-3",
+        "MapTitle": "Confidence in the European Parliament in EU countries in 2016",
+        "MapSource": "Statistical Atlas of Poland, 2018, GUS",
         "QuestionText": "Porównaj dane dotyczące zaufania z ich zmianami w czasie. Czy kraje, które miały najwyższy poziom zaufania w 2016 roku, wykazują również pozytywny trend wzrostu zaufania w porównaniu do 2010 roku? Podaj dwa przykłady krajów potwierdzających Twoje stanowisko. ",
         "AIResponses": [
             {
@@ -2973,6 +3063,8 @@
         "ID": 46,
         "Operation": "Associate",
         "MapID": "MULTI-D-ATL-1",
+        "MapTitle": "Acting together",
+        "MapSource": "ESPON Atlas, 2006",
         "QuestionText": "Czy regiony biorące udział w większej liczbie programów charakteryzują się również największą liczbę projektów? Uzasadnij odpowiedź.",
         "AIResponses": [
             {
@@ -3039,6 +3131,8 @@
         "ID": 47,
         "Operation": "Associate",
         "MapID": "MULTI-D-ATL-2",
+        "MapTitle": "MEGAs & competitiveness",
+        "MapSource": "ESPON Atlas, 2006",
         "QuestionText": "Czy istnieje zauważalna zależność między kolorem regionu (wskaźniki B+R) a wielkością wykresu kołowego MEGA? Czy regiony z wyższymi wskaźnikami B+R mają większe znaczenie funkcjonalne (średnio)?",
         "AIResponses": [
             {
@@ -3105,6 +3199,8 @@
         "ID": 48,
         "Operation": "Associate",
         "MapID": "MULTI-D-ATL-3",
+        "MapTitle": "Intensity of co-operation",
+        "MapSource": "ESPON Atlas, 2006",
         "QuestionText": "Sprawdź, czy większą liczbę projektów można powiązać z obecnością dużych aglomeracji miejskich. Czy mapa może być interpretowana w ten sposób? Podaj dwa przykłady uzasadniające Twój punkt widzenia.",
         "AIResponses": [
             {
