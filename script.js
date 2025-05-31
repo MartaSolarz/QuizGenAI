@@ -340,8 +340,6 @@ async function saveResultsToSheets() {
         completedAt: new Date().toISOString()
     }));
 
-    console.log('Dane do wysłania do Google Sheets:', dataToSend);
-
     if (GOOGLE_SCRIPT_URL === 'TUTAJ_WSTAW_URL_DO_GOOGLE_APPS_SCRIPT' || GOOGLE_SCRIPT_URL.trim() === '') {
         console.warn('URL do Google Apps Script nie jest skonfigurowany. Dane nie zostaną wysłane.');
         saveStatusDiv.innerHTML = '<p>URL Google Sheets nie jest skonfigurowany. Dane wyświetlone w konsoli i zapisane lokalnie (jeśli zaimplementowano).</p>';
@@ -351,7 +349,7 @@ async function saveResultsToSheets() {
     }
 
     try {
-        saveStatusDiv.innerHTML = '<p>Wysyłanie danych... nie zamykaj strony</p>';
+        saveStatusDiv.innerHTML = '<p>Wysyłanie odpowiedzi...</p>';
         const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
@@ -367,13 +365,13 @@ async function saveResultsToSheets() {
             })
         });
 
-        saveStatusDiv.innerHTML = '<p>Dane zostały wysłane!</p>';
+        saveStatusDiv.innerHTML = '<p>Odpowiedzi zostały wysłane!</p>';
         saveStatusDiv.className = 'save-status success';
         console.log('Dane wysłane do Google Sheets.');
 
     } catch (error) {
         console.error('Błąd wysyłania do Google Sheets:', error);
-        saveStatusDiv.innerHTML = `<p>Błąd podczas wysyłania danych. Spróbuj ponownie wypełnić quiz.</p>`;
+        saveStatusDiv.innerHTML = `<p>Błąd podczas wysyłania odpowiedzi. Spróbuj ponownie wypełnić quiz.</p>`;
         saveStatusDiv.className = 'save-status error';
         saveToLocalStorage({ participant: participantData, results: quizAttemptResults, summary: {finalScore: score, totalQuestions: currentProcessedQuestions.length}});
     }
