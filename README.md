@@ -7,6 +7,8 @@ Doktorat realizowany jest w **Międzydziedzinowej Szkole Dokotrskiej Uniwersytet
 
 Opublikowany quiz ma na celu sprawdzenie rozróżnialności odpowiedzi udzielonych przez modele GenAI i odpowidzi udzielonych przez ludzi.
 
+Link do quizu: https://martasolarz.github.io/QuizGenAI/
+
 ## Więcej informacji o badaniu "Ocena zdolności multimodalnych modeli GenAI do użytkowania map statystycznych: odczyt, interpretacja, analiza"
 
 ### I. Cel badania
