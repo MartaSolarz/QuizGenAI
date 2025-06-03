@@ -244,14 +244,32 @@ function displayQuestion() {
     isAnswered = false;
     document.getElementById('nextBtn').classList.remove('active');
     document.getElementById('nextBtn').disabled = true;
+
+    document.querySelectorAll('.answer').forEach(el => {
+        el.classList.remove('selected', 'correct', 'incorrect');
+    });
 }
 
 function selectAnswer(slot) {
-    if (isAnswered) return;
+    document.querySelectorAll('.answer').forEach(el => {
+        el.classList.remove('selected');
+    });
 
     selectedAnswerSlot = slot;
+    document.getElementById(`answer${slot}`).classList.add('selected');
+
+    document.getElementById('nextBtn').classList.add('active');
+    document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion() {
+    if (!selectedAnswerSlot) {
+        alert("Proszę wybrać odpowiedź przed przejściem do następnego pytania.");
+        return;
+    }
+
     const question = currentProcessedQuestions[currentQuestionIndex];
-    const isCorrect = (slot === question.correctAnswerSlot);
+    const isCorrect = (selectedAnswerSlot === question.correctAnswerSlot);
 
     const answerData = {
         questionOriginalID: question.originalID,
@@ -266,36 +284,16 @@ function selectAnswer(slot) {
         displayedAnswerB_text: question.displayedAnswerB,
         slotForAI: question.correctAnswerSlot === 'A' ? 'B' : 'A',
         slotForHuman: question.correctAnswerSlot,
-        userSelectedSlot: slot,
+        userSelectedSlot: selectedAnswerSlot,
         isCorrect: isCorrect,
         questionIndexInQuiz: currentQuestionIndex + 1,
         timestampAnswer: new Date().toISOString()
     };
     quizAttemptResults.push(answerData);
 
-    document.querySelectorAll('.answer').forEach(el => {
-        el.classList.remove('selected', 'correct', 'incorrect');
-    });
-
-    document.getElementById(`answer${slot}`).classList.add('selected');
-
-    setTimeout(() => {
-        document.getElementById(`answer${question.correctAnswerSlot}`).classList.add('correct');
-
-        if (!isCorrect) {
-            document.getElementById(`answer${slot}`).classList.add('incorrect');
-        } else {
-            score++;
-        }
-
-        isAnswered = true;
-        document.getElementById('nextBtn').classList.add('active');
-        document.getElementById('nextBtn').disabled = false;
-    }, 500);
-}
-
-function nextQuestion() {
-    if (!isAnswered) return;
+    if (isCorrect) {
+        score++;
+    }
 
     currentQuestionIndex++;
 
@@ -447,17 +445,13 @@ function shuffleArray(array) {
 
 document.addEventListener('keydown', function(event) {
     if (document.getElementById('quizScreen').style.display === 'block') {
-        if (!isAnswered) {
-            if (event.key.toLowerCase() === 'a') {
-                selectAnswer('A');
-            } else if (event.key.toLowerCase() === 'b') {
-                selectAnswer('B');
-            }
-        } else {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                nextQuestion();
-            }
+        if (event.key.toLowerCase() === 'a') {
+            selectAnswer('A');
+        } else if (event.key.toLowerCase() === 'b') {
+            selectAnswer('B');
+        } else if ((event.key === 'Enter' || event.key === ' ') && selectedAnswerSlot) {
+            event.preventDefault();
+            nextQuestion();
         }
     }
 });
