@@ -16,16 +16,18 @@
             <p class="subtitle">Możliwości zastosowania GenAI do opracowania i ewaluacji map statystycznych</p>
             <p class="subtitle">Marta Solarz, Międzydziedzinowa Szkoła Doktorska UW</p>
             <p class="subtitle">____</p>
+            <p class="privacy-notice">Dane zbierane są anonimowo i przetwarzane wyłącznie w celach badawczych</p>
+            <p class="subtitle">____</p>
         </div>
         <div style="display: none;" id="startContent">
             <div class="quiz-description">
                 <div class="description-box">
                     <h3>Twoje zadanie:</h3>
-                    <ul><li>Quiz składa się z <strong>10 losowo wybranych pytań</strong> do różnych map statystycznych</li></ul>
+                    <ul><li>Quiz składa się z <strong>10 pytań</strong> do różnych map statystycznych</li></ul>
                     <p>Do każego pytania zaprezentowane zostaną <strong>dwie odpowiedzi</strong>:</p>
                     <ul>
-                        <li>Jedna napisana przez <strong>człowieka</strong></li>
-                        <li>Druga wygenerowana przez <strong>sztuczną inteligencję</strong></li>
+                        <li>jedna napisana przez <strong>człowieka</strong></li>
+                        <li>druga wygenerowana przez <strong>sztuczną inteligencję</strong></li>
                     </ul>
                     <p>Twoim zadaniem jest poprawnie wskazać, która z dwóch odpowiedzi została <strong>napisana przez człowieka.</strong></p>
                 </div>
@@ -40,64 +42,64 @@
         <div class="header">
             <h1>Metryczka</h1>
             <p class="subtitle">____</p>
-            <p class="subtitle">Dane demograficzne są zbierane w celach badawczych.</p>
+            <p class="subtitle">Dane demograficzne są zbierane wyłącznie w celach badawczych</p>
             <p class="subtitle">____</p>
         </div>
         <div class="loading" id="loadingMessage">
             Ładowanie pytań badawczych...
         </div>
-            <div class="demographics-form" id="demographicsForm">
-                <div class="form-group">
-                    <label for="gender">Płeć:</label>
-                    <select id="gender" required>
-                        <option value="">Wybierz</option>
-                        <option value="kobieta">Kobieta</option>
-                        <option value="mężczyzna">Mężczyzna</option>
-                        <option value="inne">Inne</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="birthYear">Rok urodzenia:</label>
-                    <input type="number" id="birthYear" min="1925" max="2015" placeholder="np. 1995" required>
-                    <small class="field-hint">Podaj rok urodzenia (np. 1995)</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="education">Wykształcenie:</label>
-                    <select id="education" required>
-                        <option value="">Wybierz</option>
-                        <option value="podstawowe">Podstawowe</option>
-                        <option value="srednie">Średnie</option>
-                        <option value="w-trakcie-licencjatu">W trakcie studiów licencjackich/inżynierskich</option>
-                        <option value="wyzsze_licencjat">Wyższe - licencjat/inżynier</option>
-                        <option value="w-trakcie-magistra">W trakcie studiów magisterskich</option>
-                        <option value="wyzsze_magister">Wyższe - magister</option>
-                        <option value="doktorat">Doktorat lub wyżej</option>
-                    </select>
-                </div>
-
-                <div class="consent-checkbox">
-                    <label>
-                        <input type="checkbox" id="consent" required>
-                        Wyrażam zgodę na przetwarzanie przekazanych danych w celach badawczych.
-                    </label>
-                </div>
+        <div class="demographics-form" id="demographicsForm">
+            <div class="form-group">
+                <label for="gender">Płeć:</label>
+                <select id="gender" required>
+                    <option value="">Wybierz</option>
+                    <option value="kobieta">Kobieta</option>
+                    <option value="mężczyzna">Mężczyzna</option>
+                    <option value="inne">Inna / Nie chcę odpowiadać</option>
+                </select>
             </div>
 
-            <button class="start-btn" onclick="startQuiz()" id="startButton" disabled>Start!</button>
+            <div class="form-group">
+                <label for="birthYear">Rok urodzenia:</label>
+                <input type="number" id="birthYear" min="1925" max="2015" placeholder="np. 1995" required>
+                <small class="field-hint">Podaj rok urodzenia (np. 1995)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="education">Wykształcenie:</label>
+                <select id="education" required>
+                    <option value="">Wybierz</option>
+                    <option value="podstawowe">Podstawowe</option>
+                    <option value="srednie">Średnie</option>
+                    <option value="w-trakcie-licencjatu">W trakcie studiów licencjackich/inżynierskich</option>
+                    <option value="wyzsze_licencjat">Wyższe - licencjat/inżynier</option>
+                    <option value="w-trakcie-magistra">W trakcie studiów magisterskich</option>
+                    <option value="wyzsze_magister">Wyższe - magister</option>
+                    <option value="doktorat">Doktorat lub wyżej</option>
+                </select>
+            </div>
+
+            <div class="consent-checkbox">
+                <label>
+                    <input type="checkbox" id="consent" required>
+                    Wyrażam zgodę na przetwarzanie przekazanych danych w celach badawczych.
+                </label>
+            </div>
         </div>
-        <div class="error" id="errorMessage" style="display: none;">
-            Nie udało się załadować pytań badawczych. Spróbuj później.
-            <br><br>
-            <button class="restart-btn" onclick="loadQuestions()">🔄 Spróbuj ponownie</button>
-        </div>
+
+        <button class="start-btn" onclick="startQuiz()" id="startButton" disabled>Start!</button>
+    </div>
+    <div class="error" id="errorMessage" style="display: none;">
+        Nie udało się załadować pytań badawczych. Spróbuj później.
+        <br><br>
+        <button class="restart-btn" onclick="loadQuestions()">🔄 Spróbuj ponownie</button>
+    </div>
     </div>
 
     <!-- Ekran quizu -->
     <div class="quiz-screen" id="quizScreen">
         <div class="header">
-            <h1 id="questionCounter">Pytanie 1 z 10</h1>
+            <span class="question-counter-small" id="questionCounter">Pytanie 1 z 10</span>
         </div>
         <div class="progress">
             <div class="progress-bar" id="progressBar"></div>
@@ -110,7 +112,7 @@
         </div>
 
         <div class="instruction-reminder">
-            <p>💡 <strong>Przypomnienie:</strong> Która odpowiedź została napisana przez człowieka?</p>
+            <p>💡 <strong>Wskaż, która odpowiedź została napisana przez człowieka?</strong></p>
         </div>
 
         <div class="answers" id="answers"></div>

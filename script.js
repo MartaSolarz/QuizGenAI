@@ -156,7 +156,6 @@ function startQuiz() {
         return;
     }
 
-
     currentQuestionIndex = 0;
     score = 0;
     quizAttemptResults = [];
@@ -164,7 +163,6 @@ function startQuiz() {
     document.getElementById('formScreen').style.display = 'none';
     document.getElementById('quizScreen').style.display = 'block';
     document.getElementById('resultsScreen').style.display = 'none';
-
 
     displayQuestion();
 }
@@ -205,13 +203,27 @@ function displayQuestion() {
     if (question.mapID && question.mapID.trim() !== '') {
         const imgElement = document.createElement('img');
         imgElement.alt = `Mapa do pytania: ${question.mapID}`;
+        imgElement.className = 'map-image';
         imgElement.onerror = function() {
-            this.onerror = function() { this.style.display='none'; console.warn(`Nie można załadować obrazka dla MapID: ${question.mapID} (próbowano .png i .jpg)`); };
+            this.onerror = function() {
+                this.style.display='none';
+                console.warn(`Nie można załadować obrazka dla MapID: ${question.mapID} (próbowano .png i .jpg)`);
+            };
             this.src = `${MAP_IMAGE_BASE_PATH}${question.mapID}.jpg`;
         };
         imgElement.src = `${MAP_IMAGE_BASE_PATH}${question.mapID}.png`;
+
+        imgElement.onclick = function() {
+            openMapModal(this.src, this.alt);
+        };
+
+        const zoomHint = document.createElement('p');
+        zoomHint.className = 'zoom-hint';
+        zoomHint.innerHTML = '🔍 <strong>Kliknij mapę aby ją powiększyć</strong>';
+
         imageContainer.innerHTML = '';
         imageContainer.appendChild(imgElement);
+        imageContainer.appendChild(zoomHint);
     } else {
         imageContainer.innerHTML = '';
     }
@@ -449,3 +461,90 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+function openMapModal(imageSrc, imageAlt) {
+    const existingModal = document.getElementById('mapModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    const modal = document.createElement('div');
+    modal.id = 'mapModal';
+    modal.className = 'map-modal';
+
+    modal.innerHTML = `
+        <div class="map-modal-content">
+            <div class="map-modal-header">
+                <span class="map-modal-title">Powiększona mapa</span>
+                <button class="map-modal-close" onclick="closeMapModal()">&times;</button>
+            </div>
+            <div class="map-modal-body">
+                <img src="${imageSrc}" alt="${imageAlt}" class="map-modal-image" id="modalMapImage">
+                <div class="zoom-controls">
+                    <button onclick="zoomMap(0.8)" class="zoom-btn">🔍-</button>
+                    <button onclick="resetMapZoom()" class="zoom-btn">Reset</button>
+                    <button onclick="zoomMap(1.2)" class="zoom-btn">🔍+</button>
+                </div>
+            </div>
+            <div class="map-modal-footer">
+                <p>Użyj przycisków zoom lub przewijaj kółkiem myszy na mapie</p>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeMapModal();
+        }
+    });
+
+    const modalImage = document.getElementById('modalMapImage');
+    modalImage.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
+        zoomMap(zoomFactor);
+    });
+
+    document.addEventListener('keydown', modalKeyHandler);
+}
+
+function closeMapModal() {
+    const modal = document.getElementById('mapModal');
+    if (modal) {
+        modal.remove();
+    }
+    document.removeEventListener('keydown', modalKeyHandler);
+}
+
+function modalKeyHandler(e) {
+    if (e.key === 'Escape') {
+        closeMapModal();
+    } else if (e.key === '+' || e.key === '=') {
+        zoomMap(1.2);
+    } else if (e.key === '-') {
+        zoomMap(0.8);
+    } else if (e.key === '0') {
+        resetMapZoom();
+    }
+}
+
+let currentZoom = 1;
+
+function zoomMap(factor) {
+    const modalImage = document.getElementById('modalMapImage');
+    if (modalImage) {
+        currentZoom *= factor;
+        currentZoom = Math.max(0.5, Math.min(currentZoom, 5));
+        modalImage.style.transform = `scale(${currentZoom})`;
+    }
+}
+
+function resetMapZoom() {
+    currentZoom = 1;
+    const modalImage = document.getElementById('modalMapImage');
+    if (modalImage) {
+        modalImage.style.transform = `scale(1)`;
+    }
+}
