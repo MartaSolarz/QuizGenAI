@@ -42,7 +42,7 @@
         <div class="header">
             <h1>Metryczka</h1>
             <p class="subtitle">____</p>
-            <p class="subtitle">Dane demograficzne są zbierane wyłącznie w celach badawczych</p>
+            <p class="subtitle">Poniższe dane są zbierane wyłącznie w celach badawczych</p>
             <p class="subtitle">____</p>
         </div>
         <div class="loading" id="loadingMessage">
@@ -50,7 +50,7 @@
         </div>
         <div class="demographics-form" id="demographicsForm">
             <div class="form-group">
-                <label for="gender">Płeć:</label>
+                <label for="gender">Płeć: *</label>
                 <select id="gender" required>
                     <option value="">Wybierz</option>
                     <option value="kobieta">Kobieta</option>
@@ -60,13 +60,13 @@
             </div>
 
             <div class="form-group">
-                <label for="birthYear">Rok urodzenia:</label>
+                <label for="birthYear">Rok urodzenia: *</label>
                 <input type="number" id="birthYear" min="1925" max="2015" placeholder="np. 1995" required>
                 <small class="field-hint">Podaj rok urodzenia (np. 1995)</small>
             </div>
 
             <div class="form-group">
-                <label for="education">Wykształcenie:</label>
+                <label for="education">Wykształcenie: *</label>
                 <select id="education" required>
                     <option value="">Wybierz</option>
                     <option value="podstawowe">Podstawowe</option>
@@ -79,10 +79,52 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="studyField">Kierunek studiów (jeśli dotyczy):</label>
+                <input type="text" id="studyField" placeholder="np. Ekonomia">
+                <small class="field-hint">Podaj obecnie studiowany lub ukończony kierunek studiów (jeśli dotyczy)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="mapSkills">Jak oceniasz swoje umiejętności czytania i interpretacji map? *</label>
+                <select id="mapSkills" required>
+                    <option value="">Wybierz</option>
+                    <option value="1">1 - Bardzo słabe</option>
+                    <option value="2">2 - Słabe</option>
+                    <option value="3">3 - Średnie</option>
+                    <option value="4">4 - Dobre</option>
+                    <option value="5">5 - Bardzo dobre</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="mapUsage">Jak często korzystasz z map przedstawiających zjawiska społeczne lub ekonomiczne? *</label>
+                <select id="mapUsage" required>
+                    <option value="">Wybierz</option>
+                    <option value="nigdy">Nigdy lub bardzo rzadko</option>
+                    <option value="rzadko">Rzadko (kilka razy w roku)</option>
+                    <option value="czasami">Czasami (raz w miesiącu)</option>
+                    <option value="czesto">Często (kilka razy w miesiącu)</option>
+                    <option value="bardzo-czesto">Bardzo często (kilka razy w tygodniu lub częściej)</option>
+                </select>
+                <small class="field-hint">Np. mapy pokazujące dane demograficzne, ekonomiczne, społeczne, wyborcze itp.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="device">Na jakim urządzeniu rozwiązujesz ten quiz? *</label>
+                <select id="device" required>
+                    <option value="">Wybierz</option>
+                    <option value="komputer">Laptop lub komputer stacjonarny</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="telefon">Telefon</option>
+                    <option value="inne">Inne</option>
+                </select>
+            </div>
+
             <div class="consent-checkbox">
                 <label>
                     <input type="checkbox" id="consent" required>
-                    Wyrażam zgodę na przetwarzanie przekazanych danych w celach badawczych.
+                    Wyrażam zgodę na przetwarzanie przekazanych danych w celach badawczych. *
                 </label>
             </div>
         </div>
@@ -93,7 +135,6 @@
         Nie udało się załadować pytań badawczych. Spróbuj później.
         <br><br>
         <button class="restart-btn" onclick="loadQuestions()">🔄 Spróbuj ponownie</button>
-    </div>
     </div>
 
     <!-- Ekran quizu -->

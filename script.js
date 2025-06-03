@@ -11,7 +11,7 @@ let sessionId = '';
 
 const numberOfQuestions = 10;
 const needToValidateDemographics = true;
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0fs0KkihBhLDMWNQ7RdcKqkofzVoleoz0FCXx16aPD01OieTvdFPMIh08ay7Te_L4Uw/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxdHXUz5QzOxmyY4PWBAFnl2qgzqQ32-75wds3fUuny1DU85HPOSYop5gKSgELFm7pt2Q/exec';
 const MAP_IMAGE_BASE_PATH = 'maps/';
 
 function generateSessionId() {
@@ -172,6 +172,7 @@ function collectDemographics() {
     const birthYear = birthYearInput.value ? parseInt(birthYearInput.value) : null;
     const currentYear = new Date().getFullYear();
     const age = birthYear ? (currentYear - birthYear) : null;
+    const studyField = document.getElementById('studyField').value || 'Brak';
 
     participantData = {
         sessionId: sessionId,
@@ -180,7 +181,11 @@ function collectDemographics() {
         age: age,
         gender: document.getElementById('gender').value,
         education: document.getElementById('education').value,
-        consent: document.getElementById('consent').checked
+        consent: document.getElementById('consent').checked,
+        studyField: studyField,
+        mapSkills: document.getElementById('mapSkills').value,
+        mapUsage: document.getElementById('mapUsage').value,
+        device: document.getElementById('device').value,
     };
 }
 
@@ -331,6 +336,10 @@ async function saveResultsToSheets() {
         age: participantData.age,
         gender: participantData.gender,
         education: participantData.education,
+        studyField: participantData.studyField,
+        mapSkills: participantData.mapSkills,
+        mapUsage: participantData.mapUsage,
+        device: participantData.device,
         questionOriginalID: result.questionOriginalID,
         operation: result.operation,
         mapID: result.mapID,
